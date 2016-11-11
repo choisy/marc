@@ -1,0 +1,5 @@
+basic_latin <- read.table("basic_latin.txt",as.is=T)
+tmp <- sub("\\+","\\\\+",basic_latin[,1])
+basic_latin[,1] <- paste0("<",tmp,">")
+devtools::use_data(basic_latin,internal=T)
+rm(basic_latin,tmp)
