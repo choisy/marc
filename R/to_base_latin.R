@@ -15,6 +15,7 @@
 #' \url{https://en.wikipedia.org/wiki/Latin_Extended_Additional}.
 #' @examples
 #' to_basic_latin(c("H<U+00E0> Noi","Hai ph<U+00F2>ng","H<U+00E0> Giang"))
+#' @export
 to_basic_latin <- function(x) {
   for(i in 1:nrow(basic_latin))
     x <- gsub(basic_latin[i,1],basic_latin[i,2],x)
