@@ -1,0 +1,10 @@
+Package: marc
+Type: Package
+Title: Miscellaneous Adhoc R Code
+Version: 0.1.0
+Author: Marc Choisy
+Maintainer: Marc Choisy <marc.choisy@ird.fr>
+Description: A collection of utility functions
+License: GPL-3
+LazyData: TRUE
+RoxygenNote: 5.0.1
