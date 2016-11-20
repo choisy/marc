@@ -4,7 +4,8 @@
 #'
 #' The matrices should have the same dimensions.
 #'
-#' @param ... numeric matrices of the same dimension.
+#' @param ... numeric matrices of the same dimensions or a list of matrices of
+#' same dimensions.
 #' @param na.rm logical. Should missing values (including NaN) be removed?
 #' @export
 #' @author Marc Choisy
@@ -13,11 +14,16 @@
 #' (b <- matrix(sample(30),6))
 #' matSum(a,b)
 matSum <- function(...,na.rm=F) {
-  matlist <- list(...)
-  if(nrow(unique(t(sapply(matlist,dim))))>1)
+  matList <- list(...)
+  if(is.list(matList[[1]])) {
+    if(length(matList) > 1)
+      warning("Only the first list of matrices is considered")
+    matList <- matList[[1]]
+  }
+  if(nrow(unique(t(sapply(matList,dim))))>1)
     stop("The matrices should have the same dimensions")
   fct <- function(x,matlist,...) {
     rowSums(data.frame(lapply(matlist,`[`,x,)),...)
   }
-  sapply(1:nrow(matlist[[1]]),fct,matlist,na.rm=na.rm)
+  sapply(1:nrow(matList[[1]]),fct,matList,na.rm=na.rm)
 }

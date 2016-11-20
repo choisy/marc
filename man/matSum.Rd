@@ -7,7 +7,8 @@
 matSum(..., na.rm = F)
 }
 \arguments{
-\item{...}{numeric matrices of the same dimension.}
+\item{...}{numeric matrices of the same dimensions or a list of matrices of
+same dimensions.}
 
 \item{na.rm}{logical. Should missing values (including NaN) be removed?}
 }
