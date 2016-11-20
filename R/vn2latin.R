@@ -8,6 +8,7 @@
 #' @examples
 #' vn2latin("ẳ")
 #' @export
+#' @author Marc Choisy
 vn2latin <- function(x) {
   for(i in 1:nrow(to_latin)) x <- gsub(to_latin[i,1],to_latin[i,2],x)
   x
