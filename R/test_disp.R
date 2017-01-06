@@ -15,8 +15,8 @@
 #' value from the test ("p").
 test_disp <- function(m) {
   m2 <- update(m,family=paste0("quasi",family(m)$family))
-  phi <- summary(m2)$dispersion
-  stat <- phi * m$df.residual
+  phi <- sum(residuals(m,type="pearson")^2)/m$df.residual
+  stat <- summary(m2)$dispersion * m$df.residual
   df <- m$df.residual
   p <- pchisq(stat,df,lower=stat<1)
   c(phi=phi,stat=stat,df=df,p=p)

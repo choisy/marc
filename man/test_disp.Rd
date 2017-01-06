@@ -4,13 +4,18 @@
 \alias{test_disp}
 \title{Test of dispersion}
 \source{
-Method suggested in the book "R in action" by Kabacoff (2011).
+method suggested in the book "R in action" by Kabacoff (2011).
 }
 \usage{
 test_disp(m)
 }
 \arguments{
 \item{m}{a glm object with family equal to "poisson" of "binomial".}
+}
+\value{
+returns a named vector of 4 components: dispersion parameter ("phi"),
+statistic ("stat"), number of degrees of freedom ("df") and corresponding p
+value from the test ("p").
 }
 \description{
 \code{test_disp} tests the significativity of the dispersion in a Poisson
