@@ -7,7 +7,7 @@
 #'
 #' @export
 addresses <- function(x, overwrite = FALSE) {
-  fct <- function(x, i) sub("()", "", x[i])
+  fct <- function(x, i) gsub(" *", "", sub("()", "", x[i]))
   addresses_book <- get(".addresses_book", envir = .GlobalEnv)
   if(missing(x)) {
     if(is.null(addresses_book)) message("Addresses book in empty")
