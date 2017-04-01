@@ -4,7 +4,7 @@
 \alias{sendRDS}
 \title{Send an R object by email.}
 \usage{
-sendRDS(object, to)
+sendRDS(object, to, body, subject)
 }
 \arguments{
 \item{x}{A vector of characters.}
