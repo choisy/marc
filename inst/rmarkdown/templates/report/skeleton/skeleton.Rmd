@@ -14,6 +14,8 @@ output:
 IMAGES:
 Insert them with: ![alt text](image.png)
 You can also resize them if needed: convert image.png -resize 50% image.png
+If you want to center the image, go through HTML code:
+<div style="text-align:center"><img src ="image.png"/></div>
 
 REFERENCES:
 For references: Put all the bibTeX references in the file "references.bib"
