@@ -3,6 +3,8 @@
 export(addresses)
 export(drop_share2)
 export(ll2incidence)
+export(make_index)
+export(make_readme)
 export(matSum)
 export(ovv)
 export(put)
