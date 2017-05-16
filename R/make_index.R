@@ -1,7 +1,6 @@
 #' @export
-make_index <- function(from = 5, to = 9) {
+make_index <- function(from = 5, to = 9, path = "website") {
   system(paste0("sed ",from,",",to,"d vignettes/",
-#                dir("vignettes"),
                 grep("\\.Rmd$", dir("vignettes"), value = TRUE),
-                " > website/index.Rmd"))
+                " > ", path, "/index.Rmd"))
 }
