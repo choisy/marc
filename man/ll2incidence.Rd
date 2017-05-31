@@ -15,4 +15,3 @@ temporal aggregation wished for the incidence calculation.}
 \description{
 Calculates daily, weekly or monthly incidence from line listing.
 }
-

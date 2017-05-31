@@ -21,4 +21,3 @@ The translation of x in Basic Latin.
 \author{
 Marc Choisy
 }
-

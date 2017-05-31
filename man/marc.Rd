@@ -8,4 +8,3 @@
 \description{
 The marc package provide graphical and data manipulation functions.
 }
-

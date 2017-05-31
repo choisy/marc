@@ -22,4 +22,3 @@ vn2latin("ẳ")
 \author{
 Marc Choisy
 }
-

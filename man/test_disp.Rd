@@ -28,4 +28,3 @@ test_disp(m)
 \author{
 Marc Choisy
 }
-

@@ -26,4 +26,3 @@ matSum(a,b)
 \author{
 Marc Choisy
 }
-
