@@ -14,4 +14,4 @@ Imports:
     lubridate,
     classInt
 RoxygenNote: 6.0.1
-
+Suggests: testthat
