@@ -91,9 +91,16 @@ draw_heatmap <- function(df,
 #'
 #' @examples
 #' library(gdpm)
+#' library(marc)
+#' library(dplyr)
+#' library(magrittr)
 #' # A heatmap of the ILI data:
-#' ili <- getid(ili, from = 2004)
-#' ili <-  hm_data(ili, "incidence")
+#' ili <- getid(ili, from = 2004) %>%
+#'   dplyr::mutate(time = as.Date(
+#'     paste0(year, "-", as.numeric(month), "-", 15))) %>%
+#'   dplyr:: select(matches("province"), matches("time"),
+#'     contains("incidence")) %>%
+#'   dplyr::arrange(time)
 #' sthm(ili)
 #'
 #' # With a legend by using legend2 function:
@@ -131,8 +138,11 @@ draw_heatmap <- function(df,
 #' sthm(ili, f = function(x) x^.3, col = brewer.pal(9, "YlOrBr"))
 #'
 #' # changing the color of the missing values:
-#' rubella <- getid(rubella)
-#' rubella <- hm_data("incidence")
+#' rubella <- getid(rubella)  %>%
+#'   mutate(time = as.Date(paste0(year, "-", as.numeric(month), "-", 15))) %>%
+#'   select(matches("province"), matches("time"), contains("incidence")) %>%
+#'   arrange(time)
+#'
 #' a <- sthm(rubella, f = sqrt, col = col)
 #' legend2(.925, 1, legend =  a, col = col, postext = "right", n_round = 2,
 #'         col_na = "grey", h = 1/(length(a) - 1), w = 0.04, tl = 0.01,
