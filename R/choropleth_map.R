@@ -233,24 +233,20 @@ choropleth_fix <- function (df, col = heat.colors(6), col_na = "grey",
 #' # The last step is to print a legend, here we use legend2 of the 'marc'
 #' # package but other function can be used.
 #' library(dplyr)
-#' dengue_sel  <- filter(dengue, year == 1993, month == "September")
-#' dengue_sel <- select(dengue_sel, province, contains("incidence"))
-#' a <- choropleth_map(dengue_sel, map)
+#' dengue_0993  <- filter(dengue, year == 1993, month == "September")
+#' dengue_0993 <- select(dengue_0993, province, contains("incidence"))
+#' a <- choropleth_map(dengue_0993, map)
 #' # return invisibly the information for the legend
 #' legend2(legend = a, col = attr(a, "colors"), col_na = "grey")
 #'
 #' # You can also use the '%>%' operator:
-#' dengue %>%
-#'   filter(year == 1993, month == "September") %>%
-#'   select(province, contains("incidence")) %>%
+#' dengue_0993 %>%
 #'   choropleth_map(map) %>%
 #'   legend2(legend = ., col = attr(., "colors"), col_na = "grey")
 #'
 #' # A choroplet map of the dengue data with some data transformations in order
 #' # to reflect better the contrasts:
-#' dengue  %>%
-#'  filter(year == 1993, month == "September") %>%
-#'  select(province, contains("incidence")) %>%
+#' dengue_0993 %>%
 #'  choropleth_map(map, n = 9, style = "jenks", col = heat.colors(9)) %>%
 #'  legend2(legend = ., col = attr(., "colors"), col_na = "grey")
 #'
@@ -259,35 +255,27 @@ choropleth_fix <- function (df, col = heat.colors(6), col_na = "grey",
 #' library(RColorBrewer)
 #' # to see the available color palettes:
 #' display.brewer.all()
-#' dengue  %>%
-#'  filter(year == 1993, month == "September") %>%
-#'  select(province, contains("incidence")) %>%
+#' dengue_0993 %>%
 #'  choropleth_map(map, n = 9, style = "jenks",
 #'       col = brewer.pal(9, "YlOrRd")) %>%
 #'  legend2(legend = ., col = attr(., "colors"), col_na = "grey")
 #'
 #' # changing the color of the missing values:
-#' dengue  %>%
-#'  filter(year == 1993, month == "September") %>%
-#'  select(province, contains("incidence")) %>%
+#' dengue_0993 %>%
 #'  choropleth_map(map, n = 9, style = "jenks",
 #'       col = brewer.pal(9, "YlOrRd"), col_na = "blue") %>%
 #'  legend2(legend = ., col = attr(., "colors"), col_na = "blue")
 #'
 #'
 #' # Print the distribution of the value by intervals:
-#' dengue  %>%
-#'  filter(year == 1993, month == "September") %>%
-#'  select(province, contains("incidence")) %>%
+#' dengue_0993 %>%
 #'  choropleth_map(map, n = 9, style = "jenks",
 #'       col = brewer.pal(9, "YlOrRd"), col_na = "blue",
 #'       distrib = TRUE) %>%
 #'  legend2(legend = ., col = attr(., "colors"), col_na = "blue")
 #'
 #' # Use the fixedBreaks parameters to define your own intervals of value:
-#' dengue  %>%
-#'  filter(year == 1993, month == "September") %>%
-#'  select(province, contains("incidence")) %>%
+#' dengue_0993 %>%
 #'  choropleth_map(map, fixedBreaks = c(0, 20, 100, 200, 400, 800, 1200, 1500),
 #'       col = brewer.pal(7, "YlOrRd"), col_na = "blue") %>%
 #'  legend2(legend = ., col = attr(., "colors"), col_na = "blue")
