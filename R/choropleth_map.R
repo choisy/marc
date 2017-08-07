@@ -232,6 +232,7 @@ choropleth_fix <- function (df, col = heat.colors(6), col_na = "grey",
 #' # The second step is to print the map.
 #' # The last step is to print a legend, here we use legend2 of the 'marc'
 #' # package but other function can be used.
+#' library(dplyr)
 #' dengue_sel  <- filter(dengue, year == 1993, month == "September")
 #' dengue_sel <- select(dengue_sel, province, contains("incidence"))
 #' a <- choropleth_map(dengue_sel, map)
