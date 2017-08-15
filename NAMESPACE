@@ -3,7 +3,6 @@
 export(addresses)
 export(build_website)
 export(drop_share2)
-export(ll2incidence)
 export(make_index)
 export(make_init)
 export(make_readme)
