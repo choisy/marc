@@ -2,6 +2,7 @@
 
 export(addresses)
 export(build_website)
+export(datasets)
 export(drop_share2)
 export(full_seq2)
 export(glm2)
