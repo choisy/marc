@@ -37,3 +37,10 @@ knitr::opts_chunk$set(margin = TRUE, prompt = TRUE, comment = "",
 
 #Sys.setenv(LANGUAGE = "en")
 ```
+
+> Session info is at the bottom of the document
+
+```{r}
+sessionInfo()
+```
+
