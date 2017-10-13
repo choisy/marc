@@ -25,6 +25,7 @@ title wherever you want to display the reference list.
 -->
 
 ```{r include = FALSE}
+# general options:
 knitr::knit_hooks$set(margin = function(before, options, envir) {
   if (before) par(mgp = c(1.5, .5, 0), bty = "n", plt = c(.105, .97, .13, .97))
   else NULL
@@ -35,10 +36,46 @@ knitr::opts_chunk$set(margin = TRUE, prompt = TRUE, comment = "",
                       dev.args = list(pointsize = 11), fig.height = 3.5,
                       fig.width = 4.24725, fig.retina = 2, fig.align = "center")
 
-#Sys.setenv(LANGUAGE = "en")
 ```
 
-> Session info is at the bottom of the document
+```{r include = FALSE}
+# overwritting some functions:
+library <- function(...) base::library(..., warn.conflicts = FALSE, quiet = TRUE)
+require <- function(...) base::require(..., warn.conflicts = FALSE, quiet = TRUE)
+```
+
+```{r include = FALSE, eval = FALSE}
+# redefining the locales:
+l <- "en_US.UTF-8"
+Sys.setenv(LANGAGE = l)
+Sys.setlocale(locale = l)
+Sys.setlocale("LC_MESSAGES", l)
+```
+
+```{r include = FALSE, eval = FALSE}
+# cleaning the packages space:
+search_path <- search()
+pkgs <- c("stats", "graphics", "grDevices", "utils", "datasets", "methods", "base")
+tdet <- grep("package", search_path[!(search_path %in% paste0("package:", pkgs))],
+             value = TRUE)
+for(i in tdet) detach(i, unload = TRUE, character.only = TRUE)
+```
+
+> Information about the current R session is at the bottom of the document
+
+Installing the data packages from GitHub:
+
+```{r eval = FALSE}
+devtools::install_github("choisy/marc")        # miscellaneous accessory R codes
+```
+
+Loading the data packages:
+
+```{r}
+library(marc)
+```
+
+## Session information
 
 ```{r}
 sessionInfo()
