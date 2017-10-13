@@ -63,6 +63,8 @@ for(i in tdet) detach(i, unload = TRUE, character.only = TRUE)
 
 > Information about the current R session is at the bottom of the document
 
+## Installing and loading needed packages
+
 Installing the data packages from GitHub:
 
 ```{r eval = FALSE}
