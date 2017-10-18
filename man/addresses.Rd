@@ -2,14 +2,49 @@
 % Please edit documentation in R/addresses.R
 \name{addresses}
 \alias{addresses}
-\title{addresses}
+\title{Manages the addresses book}
 \usage{
 addresses(x, overwrite = FALSE)
 }
-\description{
-sdfsf
+\arguments{
+\item{\code{x}}{an optional unquoted character string.}
 }
-\details{
-fsdfsdf
-qsfqsdf
+\value{
+If \code{x} is missing, returns the content of the addresses book. If
+\code{x} is a pseudo, it returns the corresponding email addresse. If \code{x}
+is a formula with a pseudo on the left hand side of the tild sign and an
+email address on the right hand side of it, it assigns this news entry to the
+address book.
+}
+\description{
+This function allows to print the content of the addresses book as well as to
+retrieve, define or remove one address.
+}
+\examples{
+# When the addresses book is empty:
+addresses()
+
+# Assigning 3 entries to the addresses book:
+addresses(pseudo1 ~ name1@domain1)
+addresses(pseudo2 ~ name2@domain2)
+addresses(pseudo3 ~ name3@domain3)
+
+# Printing the content of the addresses book:
+addresses()
+
+# Trying to use a pseudo already present in the addresses book:
+addresses(pseudo3 ~ name4@domain4, overwrite = TRUE)
+
+# Replacing the address of a pseudo with a new address:
+addresses(pseudo3 ~ name4@domain4)
+
+# Retrieving an email address:
+addresses(pseudo3)
+}
+\seealso{
+The pseudo of an entry of the addreses book can be used in place of
+its corresponding email address to sending object with the \code{send} function.
+}
+\author{
+Marc Choisy
 }
