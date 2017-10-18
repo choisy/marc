@@ -1,13 +1,14 @@
 Package: marc
 Type: Package
-Title: Miscellaneous Adhoc R Code
+Title: Miscellaneous Accessory R Codes
 Version: 0.1.0
 Author: Marc Choisy
 Maintainer: Marc Choisy <marc.choisy@ird.fr>
 Description: A collection of utility functions
-License: GPL-3
+License: MIT
 LazyData: TRUE
 RoxygenNote: 6.0.1
+Depends: R, yaml
 Imports: car,
   dplyr,
   magrittr,
