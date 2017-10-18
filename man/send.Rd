@@ -25,7 +25,7 @@ exclusively by the \code{send} function. It's safer in terms of security than
 using the user's normal email account.
 
 2. if you are using Mac OS X, configure your system following the steps from
-here \url
+here URL
 }
 \examples{
 2+2

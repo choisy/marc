@@ -11,7 +11,7 @@
 #' using the user's normal email account.
 #'
 #' 2. if you are using Mac OS X, configure your system following the steps from
-#' here \url
+#' here URL
 #'
 #' @seealso The function \code{addresses} allows to manage the addresses book and
 #' see the pseudo that can be used in the \code{send} function in place of a
