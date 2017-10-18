@@ -1,4 +1,5 @@
 .onLoad <- function(libname, pkgname) {
+if(FALSE) {
   path <- paste0(.libPaths(), "/marc_data")
   file <- paste0(path, "/addresses_book.rda")
   if(dir.exists(path)) load(file)
@@ -9,4 +10,5 @@
   }
   assign(".addresses_book", addresses_book, envir = .GlobalEnv)
   rm(addresses_book)
+}
 }
