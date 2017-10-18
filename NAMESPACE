@@ -2,6 +2,7 @@
 
 export(Anova2)
 export(addresses)
+export(areas)
 export(build_website)
 export(datasets)
 export(drop_interactions)
