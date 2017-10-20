@@ -1,5 +1,6 @@
 .onLoad <- function(libname, pkgname) {
   path <- paste0(.libPaths(), "/marc_data")
+print(path)
   file <- paste0(path, "/addresses_book.rda")
   if(dir.exists(path)) load(file)
   else {
