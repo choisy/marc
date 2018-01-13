@@ -24,8 +24,7 @@ Uncomment the bibliography field in the above header and put a "References"
 title wherever you want to display the reference list.
 -->
 
-```{r include = FALSE}
-# general options:
+```{r general_options, include = FALSE}
 knitr::knit_hooks$set(margin = function(before, options, envir) {
   if (before) par(mgp = c(1.5, .5, 0), bty = "n", plt = c(.105, .97, .13, .97))
   else NULL
@@ -38,21 +37,19 @@ knitr::opts_chunk$set(margin = TRUE, prompt = TRUE, comment = "",
 
 ```
 
-```{r include = FALSE}
-# overwritting some functions:
+```{r loading_functions, include = FALSE}
 library <- function(...) base::library(..., warn.conflicts = FALSE, quiet = TRUE)
 require <- function(...) base::require(..., warn.conflicts = FALSE, quiet = TRUE)
 ```
 
-```{r include = FALSE, eval = FALSE}
-# redefining the locales:
+```{r locales_UK, include = FALSE, eval = FALSE}
 l <- "en_US.UTF-8"
 Sys.setenv(LANGAGE = l)
 Sys.setlocale(locale = l)
 Sys.setlocale("LC_MESSAGES", l)
 ```
 
-```{r include = FALSE, eval = FALSE}
+```{r cleaning_packages, include = FALSE, eval = FALSE}
 # cleaning the packages space:
 search_path <- search()
 pkgs <- c("stats", "graphics", "grDevices", "utils", "datasets", "methods", "base")
@@ -63,23 +60,10 @@ for(i in tdet) detach(i, unload = TRUE, character.only = TRUE)
 
 > Information about the current R session is at the bottom of the document
 
-## Installing and loading needed packages
-
-Installing the data packages from GitHub:
-
-```{r eval = FALSE}
-devtools::install_github("choisy/marc")        # miscellaneous accessory R codes
-```
-
-Loading the data packages:
-
-```{r}
-library(marc)
-```
 
 ## Session information
 
-```{r}
+```{r session_info}
 sessionInfo()
 ```
 
