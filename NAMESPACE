@@ -3,6 +3,7 @@
 export(addresses)
 export(build_website)
 export(drop_share2)
+export(make_film_list)
 export(make_index)
 export(make_init)
 export(make_readme)
