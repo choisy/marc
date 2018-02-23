@@ -4,7 +4,9 @@
 \alias{make_film_list}
 \title{Write the films list}
 \usage{
-make_film_list()
+make_film_list(from = "/Volumes/Seagate Backup Plus Drive/films",
+  to = "~/Dropbox/Public/film_list.html", ftp = "ftpperso.free.fr",
+  login = "marcchoisy", passwd)
 }
 \description{
 Write the films list
