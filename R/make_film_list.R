@@ -12,5 +12,6 @@ make_film_list <- function() {
   films <- sub("\\..*$", "", films)
   films <- films[order(tolower(films))]
   write(films, "~/Dropbox/film_list.txt")
+  cat(length(films), "films.")
   invisible(films)
 }
