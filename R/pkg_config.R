@@ -53,4 +53,10 @@ pkg_config <- function() {
   fileConn <- file(paste0(package_name, ".Rproj"))
   writeLines(proj, fileConn)
   close(fileConn)
+
+  license <- c(paste("YEAR:", sub("-.*$", "", Sys.Date())),
+               "COPYRIGHT HOLDER: Marc Choisy")
+  fileConn <- file("LICENSE")
+  writeLines(license, fileConn)
+  close(fileConn)
 }
