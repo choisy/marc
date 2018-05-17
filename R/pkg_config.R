@@ -14,14 +14,14 @@ pkg_config <- function() {
   description <- c(
     paste("Package:", package_name),
     "Type: Package",
-    "***Title: What the Package Does (Title Case)",
+    "Title: What the Package Does (Title Case) **************************************",
     "Version: 0.1.0",
     "Authors@R: person(\"Marc\", \"Choisy\",",
     "                  email = \"marc.choisy@ird.fr\",",
     "                  role = c(\"aut\", \"cre\", \"cph\"),",
     "                  comment = c(ORCID = \"0000-0002-5187-6390\"))",
-    "***Description: More about what it does (maybe more than one line)",
-    "***    Use four spaces when indenting paragraphs within the Description.",
+    "Description: More about what it does (maybe more than one line) ****************",
+    "    Use four spaces when indenting paragraphs within the Description. **********",
     "License: MIT + file LICENSE",
     "Encoding: UTF-8",
     "LazyData: true")
