@@ -7,7 +7,7 @@
 pkg_config <- function() {
   file.remove("R/hello.R")
   file.remove("man/hello.Rd")
-  file.remove(NAMESPACE)
+  file.remove("NAMESPACE")
 
   package_name <- sub(".Rproj" , "", grep("Rproj", dir(), value = TRUE))
 
