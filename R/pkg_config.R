@@ -54,9 +54,17 @@ pkg_config <- function() {
   writeLines(proj, fileConn)
   close(fileConn)
 
-  license <- c(paste("YEAR:", sub("-.*$", "", Sys.Date())),
-               "COPYRIGHT HOLDER: Marc Choisy")
-  fileConn <- file("LICENSE")
-  writeLines(license, fileConn)
+  rprojuser <- c(
+    "auto_roxygenize_for_build_and_reload=\"1\"",
+    "auto_roxygenize_for_build_package=\"1\"",
+    "auto_roxygenize_for_check=\"1\"",
+    "live_preview_website=\"1\"",
+    "makefile_args=\"\"",
+    "preview_website=\"1\"",
+    "website_output_format=\"all\"")
+  fileConn <- file(".Rproj.user/7FC44698/build_options")
+  writeLines(rprojuser, fileConn)
   close(fileConn)
+
+  devtools::use_mit_license()
 }
