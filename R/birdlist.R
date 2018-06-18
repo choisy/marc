@@ -10,7 +10,7 @@
 #' @author Marc Choisy
 #'
 birdlist <- function(file = "~/Desktop/eBirdReports.xls") {
-  ebird <- read.table("~/Desktop/eBirdReports.xls", skip = 12, sep = "\t")
+  ebird <- read.table(file, skip = 12, sep = "\t")
   cat(paste(nrow(ebird), "bird species:\n"))
   cat(paste(gsub("\t.*\t", "", ebird[, 1], perl = T), collapse = "\n"))
 }
