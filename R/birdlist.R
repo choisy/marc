@@ -11,6 +11,7 @@
 #'
 birdlist <- function(file = "~/Desktop/eBirdReports.xls") {
   ebird <- read.table(file, skip = 12, sep = "\t")
-  cat(paste(nrow(ebird), "bird species:\n"))
-  cat(paste(gsub("\t.*\t", "", ebird[, 1], perl = T), collapse = "\n"))
+  ebird <- paste(gsub("\t.*\t", "", ebird[, 1], perl = T), collapse = "\n")
+  cat(length(strsplit(ebird, "\n")[[1]]), "bird species:\n")
+  cat(ebird)
 }
