@@ -5,13 +5,24 @@
 #' The report in question should be a tabulation-separated text file named
 #' "eBirdReports.xls".
 #'
+#' @importFrom crayon italic
+#' @importFrom magrittr %>%
 #' @export
 #'
 #' @author Marc Choisy
 #'
 birdlist <- function(file = "~/Desktop/eBirdReports.xls") {
-  ebird <- read.table(file, skip = 12, sep = "\t")
-  ebird <- paste(gsub("\t.*\t", "", ebird[, 1], perl = T), collapse = "\n")
-  cat(length(strsplit(ebird, "\n")[[1]]), "bird species:\n")
-  cat(ebird)
+  data.frame2 <- function(...) data.frame(..., stringsAsFactors = FALSE)
+  ebird <- read.table(file, skip = 12, sep = "\t", quote = "\"", stringsAsFactors = FALSE)[[1]]
+  cat(length(ebird), "bird species:\n")
+  ebird %<>% sapply(strsplit2, " - ")
+  ebird %>%
+    data.frame2() %>%
+    lapply(function(x) cat(x[1], "-",  italic(x[2]), "\n"))
+  ebird %>%
+    t() %>%
+    `rownames<-`(NULL) %>%
+    data.frame2() %>%
+    `names<-`(paste0(c("common", "scientific"), "_name")) %>%
+    invisible()
 }
