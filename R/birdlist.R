@@ -12,17 +12,25 @@
 #' @author Marc Choisy
 #'
 birdlist <- function(file = "~/Desktop/eBirdReports.xls") {
-  data.frame2 <- function(...) data.frame(..., stringsAsFactors = FALSE)
-  ebird <- read.table(file, skip = 12, sep = "\t", quote = "\"", stringsAsFactors = FALSE)[[1]]
-  cat(length(ebird), "bird species:\n")
-  ebird %<>% sapply(strsplit2, " - ")
-  ebird %>%
-    data.frame2() %>%
-    lapply(function(x) cat(x[1], "-",  italic(x[2]), "\n"))
-  ebird %>%
+  ebird <- file %>%
+    read.table(skip = 12, sep = "\t", quote = "\"", stringsAsFactors = FALSE) %>%
+    select(1) %>%
+    apply(1, strsplit2, " - ") %>%
     t() %>%
-    `rownames<-`(NULL) %>%
     data.frame2() %>%
-    `names<-`(paste0(c("common", "scientific"), "_name")) %>%
-    invisible()
+    `names<-`(paste0(c("common", "scientific"), "_name"))
+  nb <- nrow(ebird)
+  cat(nb, "bird species:\n")
+  ebird %>%
+    mutate_at("scientific_name", italic) %>%
+    mutate(sep = " (",
+           eof = ")\n",
+           nsp = row_number() %>%
+             sprintf(paste0("%", ceiling(log10(nb)), "d"), .) %>%
+             paste0(". ")) %>%
+    select(nsp, common_name, sep, scientific_name, eof) %>%
+    t() %>%
+    as.vector() %>%
+    cat(sep = "")
+  invisible(ebird)
 }
