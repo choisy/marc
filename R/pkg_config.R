@@ -31,6 +31,49 @@ pkg_config <- function() {
   writeLines(description, fileConn)
   close(fileConn)
 
+  readme <- c(
+    "---",
+    "output: github_document",
+    "---",
+    "",
+    "<!-- README.md is generated from README.Rmd. Please edit that file -->",
+    "",
+    "```{r, echo = FALSE}",
+    "knitr::opts_chunk$set(",
+    "  collapse = TRUE,",
+    "  comment = \"#>\",",
+    "  fig.path = \"README-\"",
+    ")",
+    "```",
+    "",
+    "# dplyrx <img src=\"man/figures/logo.png\" align=\"right\" width=120/>",
+    "",
+    paste0("[![Travis-CI Build Status](https://travis-ci.org/choisy/", package_name, ".svg?branch=master)](https://travis-ci.org/choisy/", package_name, ")"),
+    paste0("[![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/", package_name, ")](https://cran.r-project.org/package=", package_name, ")"),
+    "",
+    paste0("`", package_name, "` is *************************************************"),
+    "",
+    "## Installation",
+    "",
+    paste0("You can install `", package_name,  "` from GitHub with:"),
+    "",
+    "```{r gh-installation, eval = FALSE}",
+    "# install.packages(\"devtools\")",
+    paste0("devtools::install_github(\"choisy/", package_name, "\")"),
+    "```",
+    "",
+    "## Example",
+    "",
+    "*** Here explain a simple example **********************************************",
+    "",
+    "```{r}",
+    "# *** Here give the code of the simple example *********************************",
+    "```"
+  )
+  fileConn <- file("README.Rmd")
+  writeLines(readme, fileConn)
+  close(fileConn)
+
   proj <- c("Version: 1.0",
             "",
             "RestoreWorkspace: Default",
