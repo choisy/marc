@@ -23,8 +23,8 @@ pkg_config <- function() {
     "Description: More about what it does (maybe more than one line) ****************",
     "    Use four spaces when indenting paragraphs within the Description. **********",
     "License: MIT + file LICENSE",
-    paste("URL: https://github.com/choisy/", package_name),
-    paste("BugReports: https://github.com/choisy/", package_name, "/issues"),
+    paste0("URL: https://github.com/choisy/", package_name),
+    paste0("BugReports: https://github.com/choisy/", package_name, "/issues"),
     "Encoding: UTF-8",
     "LazyData: true")
   fileConn <- file("DESCRIPTION")
