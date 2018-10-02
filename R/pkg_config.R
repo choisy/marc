@@ -9,6 +9,8 @@ pkg_config <- function() {
   file.remove("man/hello.Rd")
   file.remove("NAMESPACE")
 
+  devtools::use_readme_rmd()
+
   package_name <- sub(".Rproj" , "", grep("Rproj", dir(), value = TRUE))
 
   description <- c(

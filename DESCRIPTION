@@ -7,7 +7,7 @@ Maintainer: Marc Choisy <marc.choisy@ird.fr>
 Description: A collection of utility functions
 License: MIT
 LazyData: TRUE
-RoxygenNote: 6.0.1
+RoxygenNote: 6.1.0
 Depends: R, yaml
 Imports: car,
   dplyr,
