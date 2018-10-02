@@ -9,7 +9,8 @@ pkg_config <- function() {
   file.remove("man/hello.Rd")
   file.remove("NAMESPACE")
 
-  devtools::use_readme_rmd()
+  devtools::use_readme_rmd() # for creating the .Rbuildignore file
+  write("^ignored/.*$", ".Rbuildignore", append = TRUE)
 
   package_name <- sub(".Rproj" , "", grep("Rproj", dir(), value = TRUE))
 
@@ -114,4 +115,10 @@ pkg_config <- function() {
   close(fileConn)
 
   devtools::use_mit_license()
+
+  dir.create("ignored")
+  file.copy(system.file("extdata", "add_favicon.sh", package = "marc"),
+            "ignored/add_favicon.sh")
+  download.file("https://www.dropbox.com/s/p8rtk67vtk4cwly/logo.key?raw=1",
+                "ignored/logo.key")
 }
