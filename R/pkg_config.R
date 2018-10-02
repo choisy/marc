@@ -119,6 +119,8 @@ pkg_config <- function() {
   dir.create("ignored")
   file.copy(system.file("extdata", "add_favicon.sh", package = "marc"),
             "ignored/add_favicon.sh")
+  file.copy(system.file("extdata", "favicon.R", package = "marc"),
+            "ignored/favicon.R")
   download.file("https://www.dropbox.com/s/p8rtk67vtk4cwly/logo.key?raw=1",
                 "ignored/logo.key")
 }
