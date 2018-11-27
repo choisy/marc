@@ -39,6 +39,7 @@ knitr::opts_chunk$set(margin = TRUE, prompt = TRUE, comment = "",
                       dev.args = list(pointsize = 11), fig.height = 3.5,
                       fig.width = 4.24725, fig.retina = 2, fig.align = "center")
 
+options(width = 137)
 ```
 
 ```{r loading_functions, include = FALSE}
