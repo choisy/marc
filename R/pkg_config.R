@@ -49,7 +49,7 @@ pkg_config <- function() {
     ")",
     "```",
     "",
-    "# dplyrx <img src=\"man/figures/logo.png\" align=\"right\" width=120/>",
+    paste0("# ", package_name, " <img src=\"man/figures/logo.png\" align=\"right\" width=120/>"),
     "",
     paste0("[![Travis-CI Build Status](https://travis-ci.org/choisy/", package_name, ".svg?branch=master)](https://travis-ci.org/choisy/", package_name, ")"),
     paste0("[![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/", package_name, ")](https://cran.r-project.org/package=", package_name, ")"),
